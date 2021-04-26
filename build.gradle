@@ -38,7 +38,9 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+
     implementation("io.micronaut.grpc:micronaut-grpc-client-runtime")
+    implementation("org.hibernate:hibernate-validator:6.1.6.Final")
 
     annotationProcessor("io.micronaut:micronaut-inject-java")
 
