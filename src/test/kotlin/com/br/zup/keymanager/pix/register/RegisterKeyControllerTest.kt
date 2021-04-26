@@ -49,7 +49,7 @@ internal class RegisterKeyControllerTest {
                 .setPixId(pixId)
                 .build())
 
-        val response = httpClient.toBlocking().exchange(HttpRequest.POST("/api/key/register", request), RegisterKeyResponse::class.java)
+        val response = httpClient.toBlocking().exchange(HttpRequest.POST("/api/key", request), RegisterKeyResponse::class.java)
 
         assertEquals(HttpStatus.CREATED, response.status)
         assertTrue(response.headers.contains("Location"))
@@ -71,7 +71,7 @@ internal class RegisterKeyControllerTest {
             .thenThrow(StatusRuntimeException(Status.ALREADY_EXISTS))
 
         val response = org.junit.jupiter.api.assertThrows<HttpClientResponseException> {
-            httpClient.toBlocking().exchange(HttpRequest.POST("/api/key/register", request), RegisterKeyResponse::class.java)
+            httpClient.toBlocking().exchange(HttpRequest.POST("/api/key", request), RegisterKeyResponse::class.java)
         }
 
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.status)
@@ -87,7 +87,7 @@ internal class RegisterKeyControllerTest {
         )
 
         val response = org.junit.jupiter.api.assertThrows<HttpClientResponseException> {
-            httpClient.toBlocking().exchange(HttpRequest.POST("/api/key/register", request), RegisterKeyResponse::class.java)
+            httpClient.toBlocking().exchange(HttpRequest.POST("/api/key", request), RegisterKeyResponse::class.java)
         }
 
         assertEquals(HttpStatus.BAD_REQUEST, response.status)

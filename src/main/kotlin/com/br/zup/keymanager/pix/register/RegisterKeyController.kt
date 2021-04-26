@@ -14,7 +14,7 @@ import javax.validation.Valid
 @Validated
 class RegisterKeyController(@Inject val grpcClient: ProtoRegisterKeyServiceGrpc.ProtoRegisterKeyServiceBlockingStub) {
 
-    @Post("/api/key/register")
+    @Post("/api/key")
     fun registerKey(@Valid @Body request: RegisterKeyRequest): HttpResponse<Any> {
         val response = grpcClient.registerKey(request.toProtoRegisterKeyRequest())
         val uri = UriBuilder.of("/api/query/{id}")
