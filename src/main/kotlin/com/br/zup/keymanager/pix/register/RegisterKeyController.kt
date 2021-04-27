@@ -17,8 +17,8 @@ class RegisterKeyController(@Inject val grpcClient: ProtoRegisterKeyServiceGrpc.
     @Post("/api/key")
     fun registerKey(@Valid @Body request: RegisterKeyRequest): HttpResponse<Any> {
         val response = grpcClient.registerKey(request.toProtoRegisterKeyRequest())
-        val uri = UriBuilder.of("/api/query/{id}")
-            .expand(mutableMapOf("id" to response.pixId))
+        val uri = UriBuilder.of("/api/key?pixid={pixId}&clientid={clientId}")
+            .expand(mutableMapOf("pixId" to response.pixId, "clientId" to request.clientId))
         return HttpResponse.created(RegisterKeyResponse(response.pixId), uri)
     }
 }

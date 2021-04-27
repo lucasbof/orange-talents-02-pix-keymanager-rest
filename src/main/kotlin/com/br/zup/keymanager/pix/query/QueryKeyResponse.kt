@@ -7,7 +7,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 
 data class QueryKeyResponse(
-    val clientId: String,
-    val pixId: String,
-    val pixKey: PixKeyQueryResponse,
+    val clientId: String?,
+    val pixId: String?,
+    val pixKey: PixKeyQueryResponse?,
 )

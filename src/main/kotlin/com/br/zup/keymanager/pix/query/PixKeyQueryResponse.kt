@@ -6,9 +6,9 @@ import java.time.LocalDateTime
 
 data class PixKeyQueryResponse(
 
-    val type: KeyType,
-    val key: String,
-    val account: AccountInfoQueryResponse,
+    val type: KeyType?,
+    val key: String?,
+    val account: AccountInfoQueryResponse?,
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     val createdAt: LocalDateTime
