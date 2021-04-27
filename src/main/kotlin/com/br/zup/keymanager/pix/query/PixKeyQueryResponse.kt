@@ -11,5 +11,5 @@ data class PixKeyQueryResponse(
     val account: AccountInfoQueryResponse?,
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    val createdAt: LocalDateTime
+    val createdAt: LocalDateTime?
 )
