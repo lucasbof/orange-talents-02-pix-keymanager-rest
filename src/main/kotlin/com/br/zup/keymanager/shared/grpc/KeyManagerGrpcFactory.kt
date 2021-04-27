@@ -1,5 +1,6 @@
 package com.br.zup.keymanager.shared.grpc
 
+import com.br.zup.ProtoQueryKeyServiceGrpc
 import com.br.zup.ProtoRegisterKeyServiceGrpc
 import com.br.zup.ProtoRemoveKeyServiceGrpc
 import io.grpc.ManagedChannel
@@ -15,4 +16,7 @@ class KeyManagerGrpcFactory(@GrpcChannel("keyManager") val channel: ManagedChann
 
     @Singleton
     fun removeKey() = ProtoRemoveKeyServiceGrpc.newBlockingStub(channel)
+
+    @Singleton
+    fun QueryKey() = ProtoQueryKeyServiceGrpc.newBlockingStub(channel)
 }
