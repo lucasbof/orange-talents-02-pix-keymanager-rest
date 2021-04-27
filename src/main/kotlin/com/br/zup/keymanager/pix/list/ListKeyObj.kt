@@ -10,8 +10,8 @@ data class ListKeyObj(
     val clientId: String?,
     val keyType: KeyType?,
     val key: String?,
-    val accountType: AccountType,
+    val accountType: AccountType?,
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    val createdAt: LocalDateTime
+    val createdAt: LocalDateTime?
 )
